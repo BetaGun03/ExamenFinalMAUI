@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:convertes="clr-namespace:ExamenFinal.MVVM.Converters"
+             x:Class="ExamenFinal.MVVM.Views.BuscadorView"
+             Title="BuscadorView">
+
+    <ContentPage.Resources>
+        <convertes:BarraProgresoConverter x:Key="BarraProgresoConverter"/>
+    </ContentPage.Resources>
+    
+    <VerticalStackLayout>
+        <!-- El label también usaría el estilo MiLabel pero no funciona, así que lo he quitado para que se abra el programa -->
+        <!-- El resto de componentes también deberían tener estilos pero no funcionan -->
+        
+        <Label Text="Buscar Libro" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,20"/>
+        <Entry Placeholder="Introduce el libro a buscar" x:Name="EntryBuscar" Margin="0,0,0,20"/>
+        <Button Text="Buscar" x:Name="BtnBuscar" />
+
+        <Label Text="Título" />
+        <Label Text="" x:Name="TituloLabel" />
+
+        <Label Text="Autor" Margin="0,20,0,0" />
+        <Label Text="" x:Name="AutorLabel" />
+
+        <Label Text="Número de páginas totales" Margin="0,20,0,0" />
+        <Label Text="" x:Name="PaginasTotalesLabel" />
+
+        <Label Text="Número de páginas leídas" Margin="0,20,0,0" />
+        <Label Text="" x:Name="PaginasLeidasLabel" />
+
+        <ProgressBar Progress="1.0" Margin="0,20,0,0" ProgressColor="Green" x:Name="BarraProgresoBuscado"/>
+
+        <Button Text="Actualizar/Guardar" x:Name="BtnActualizarGuardar" Margin="0,20,0,0" />
+
+    </VerticalStackLayout>
+</ContentPage>

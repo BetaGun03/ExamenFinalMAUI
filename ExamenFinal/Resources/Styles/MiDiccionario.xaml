@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExamenFinal.Resources.Styles.MiDiccionario">
+    
+    <!-- Creo los estilos pero por alguna razón cuando los uso no funcionan -->
+
+    <Style TargetType="Label" x:Key="MiLabel">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"/>
+        <Setter Property="FontSize" Value="25" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+
+    <Style TargetType="VerticalStackLayout" x:Key="VerticalPrincipal">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource White}}" />
+    </Style>
+
+    <Style TargetType="Button" x:Key="BotonRedondo">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource MidnightBlue}, Dark={StaticResource White}}" />
+        <Setter Property="CornerRadius" Value="20" />
+    </Style>
+
+    <Style TargetType="Entry" x:Key="EntryBuscar">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource MidnightBlue}, Dark={StaticResource White}}" />
+    </Style>
+
+</ResourceDictionary>

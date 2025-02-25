@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:convertes="clr-namespace:ExamenFinal.MVVM.Converters"
+             x:Class="ExamenFinal.MVVM.Views.PrincipalView"
+             Title="LibrosView">
+
+    <ContentPage.Resources>
+        <convertes:BarraProgresoConverter x:Key="BarraProgresoConverter"/>
+        <convertes:ProgresoConverter x:Key="ProgresoConverter"/>
+    </ContentPage.Resources>
+    
+    <!-- He creado los estilos en MiDiccionario.xaml pero por alguna razón no funcionan cuando los uso -->
+    
+    <VerticalStackLayout>
+        <Image Source="dotnet_bot.png" HeightRequest="400" />
+        <!--<Label Text="Read Your Favorite Books" Style="{StaticResource MiLabel}"/> Debería funcionar pero dice que no reconoce ese Key-->
+        <Label Text="Read Your Favorite Books" FontSize="25" FontAttributes="Bold" Margin="20"/>
+        <Label Text="Hemos reunido la mayoría de libros para que puedas encontrar y disfrutar tus libros favoritos." FontSize="12" Margin="20,0,20,20"/>
+        
+        <CollectionView ItemsSource="{Binding ObservableLibros}">
+            
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="3"/>
+            </CollectionView.ItemsLayout>
+            
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout HeightRequest="100" WidthRequest="200" Padding="5,20,0,20" >
+                        <Label Text="{Binding Titulo}" />
+                        <Label Text="{Binding Autor}" />
+                        <ProgressBar Progress="{Binding PorcentajeLeido, Converter={StaticResource BarraProgresoConverter}}" ProgressColor="{Binding PorcentajeLeido, Converter={StaticResource ProgresoConverter}}"/>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            
+        </CollectionView>
+
+        <Button Text="->" HorizontalOptions="End" VerticalOptions="End" Clicked="Button_Clicked" />
+
+    </VerticalStackLayout>
+</ContentPage>
