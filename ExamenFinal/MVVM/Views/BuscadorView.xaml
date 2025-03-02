@@ -7,31 +7,30 @@
 
     <ContentPage.Resources>
         <convertes:BarraProgresoConverter x:Key="BarraProgresoConverter"/>
+        <convertes:ProgresoConverter x:Key="ProgresoConverter"/>
     </ContentPage.Resources>
-    
+
     <VerticalStackLayout>
-        <!-- El label también usaría el estilo MiLabel pero no funciona, así que lo he quitado para que se abra el programa -->
-        <!-- El resto de componentes también deberían tener estilos pero no funcionan -->
-        
+
         <Label Text="Buscar Libro" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,20"/>
         <Entry Placeholder="Introduce el libro a buscar" x:Name="EntryBuscar" Margin="0,0,0,20"/>
-        <Button Text="Buscar" x:Name="BtnBuscar" />
+        <Button Text="Buscar" x:Name="BtnBuscar" Clicked="BtnBuscar_Clicked" />
 
         <Label Text="Título" />
-        <Label Text="" x:Name="TituloLabel" />
+        <Entry Text="" x:Name="TituloEntry" />
 
         <Label Text="Autor" Margin="0,20,0,0" />
-        <Label Text="" x:Name="AutorLabel" />
+        <Entry Text="" x:Name="AutorEntry" />
 
         <Label Text="Número de páginas totales" Margin="0,20,0,0" />
-        <Label Text="" x:Name="PaginasTotalesLabel" />
+        <Entry Text="" x:Name="PaginasTotalesEntry" />
 
         <Label Text="Número de páginas leídas" Margin="0,20,0,0" />
-        <Label Text="" x:Name="PaginasLeidasLabel" />
+        <Entry Text="" x:Name="PaginasLeidasEntry" />
 
-        <ProgressBar Progress="1.0" Margin="0,20,0,0" ProgressColor="Green" x:Name="BarraProgresoBuscado"/>
+        <ProgressBar Progress="{Binding libroEncontrado.PorcentajeLeido, Converter={StaticResource BarraProgresoConverter}}" Margin="0,20,0,0" ProgressColor="{Binding libroEncontrado.PorcentajeLeido ,Converter={StaticResource ProgresoConverter}}" x:Name="BarraProgresoBuscado"/>
 
-        <Button Text="Actualizar/Guardar" x:Name="BtnActualizarGuardar" Margin="0,20,0,0" />
+        <Button Text="Actualizar/Guardar" x:Name="BtnActualizarGuardar" Margin="0,20,0,0" Clicked="BtnActualizarGuardar_Clicked" />
 
     </VerticalStackLayout>
 </ContentPage>

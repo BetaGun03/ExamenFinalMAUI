@@ -11,32 +11,33 @@
     </ContentPage.Resources>
     
     <!-- He creado los estilos en MiDiccionario.xaml pero por alguna razón no funcionan cuando los uso -->
-    
-    <VerticalStackLayout>
-        <Image Source="dotnet_bot.png" HeightRequest="400" />
-        <!--<Label Text="Read Your Favorite Books" Style="{StaticResource MiLabel}"/> Debería funcionar pero dice que no reconoce ese Key-->
-        <Label Text="Read Your Favorite Books" FontSize="25" FontAttributes="Bold" Margin="20"/>
-        <Label Text="Hemos reunido la mayoría de libros para que puedas encontrar y disfrutar tus libros favoritos." FontSize="12" Margin="20,0,20,20"/>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Image Source="dotnet_bot.png" HeightRequest="400" />
+            <!--<Label Text="Read Your Favorite Books" Style="{StaticResource MiLabel}"/> Debería funcionar pero dice que no reconoce ese Key-->
+            <Label Text="Read Your Favorite Books" FontSize="25" FontAttributes="Bold" Margin="20"/>
+            <Label Text="Hemos reunido la mayoría de libros para que puedas encontrar y disfrutar tus libros favoritos." FontSize="12" Margin="20,0,20,20"/>
         
-        <CollectionView ItemsSource="{Binding ObservableLibros}">
+            <CollectionView ItemsSource="{Binding ObservableLibros}">
             
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical" Span="3"/>
-            </CollectionView.ItemsLayout>
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="3"/>
+                </CollectionView.ItemsLayout>
             
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <VerticalStackLayout HeightRequest="100" WidthRequest="200" Padding="5,20,0,20" >
-                        <Label Text="{Binding Titulo}" />
-                        <Label Text="{Binding Autor}" />
-                        <ProgressBar Progress="{Binding PorcentajeLeido, Converter={StaticResource BarraProgresoConverter}}" ProgressColor="{Binding PorcentajeLeido, Converter={StaticResource ProgresoConverter}}"/>
-                    </VerticalStackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout HeightRequest="100" WidthRequest="200" Padding="5,20,0,20" >
+                            <Label Text="{Binding Titulo}" />
+                            <Label Text="{Binding Autor}" />
+                            <ProgressBar Progress="{Binding PorcentajeLeido, Converter={StaticResource BarraProgresoConverter}}" ProgressColor="{Binding PorcentajeLeido, Converter={StaticResource ProgresoConverter}}"/>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
             
-        </CollectionView>
+            </CollectionView>
 
-        <Button Text="->" HorizontalOptions="End" VerticalOptions="End" Clicked="Button_Clicked" />
+            <Button Text="->" HorizontalOptions="End" VerticalOptions="End" Clicked="Button_Clicked" />
 
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
